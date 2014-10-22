@@ -2,10 +2,9 @@ var shuffler = function(game){}
 
 shuffler.prototype = {
   	create: function(){
-                items=[];
-                this.get_items();
                 delay = 0;
-                var x = 0;
+                xx = item_x;
+                var lr = 0;
                 this.game.physics.startSystem(Phaser.Physics.ARCADE);
 		var gameTitle = this.game.add.sprite(this.game.world.width * 0.5,this.game.world.height * .1,"game_title");
 		gameTitle.anchor.setTo(0.5,0.5);
@@ -15,18 +14,34 @@ shuffler.prototype = {
                 bricks = this.game.add.group();
                 bricks.enableBody = true;
 
+                item_group = this.game.add.group();
+                item_group.enableBody = true;
+
                 this.load_ground();
 
                 //go full screen on click
                 this.game.input.onDown.add(this.fullscreen, this);
 	},
         update: function(){
-                //this.game.physics.arcade.collide(players, bricks);
+                this.game.physics.arcade.collide(item_group, item_group);
+                this.game.physics.arcade.collide(item_group, bricks);
                 delay-=1;
-                if(delay < 0 && this.x > 0){
-                    this.x-=1;
+                if(delay < 0 && xx > 0){
+                    xx-=1;
                     delay = 30;
-                    console.log(items[this.x]);
+                    console.log(items[xx]);
+                    var item = item_group.create(this.game.world.width * 0.5,-64,items[xx]);
+                    if(this.lr == 0){
+                        this.lr = 1;
+                    }else{
+                        this.lr = 0;
+                    }
+                    item.anchor.setTo(this.lr,this.lr);
+                    item.scale.setTo(1.5,1.5);
+                    item.body.gravity.y = 500;
+                    item.body.mass = 0;
+                    item.body.bounce.y = 0.5;
+        
                 }
 
         },
@@ -45,6 +60,10 @@ shuffler.prototype = {
                 _this.x = data.length;
                 for(var j, x, i = data.length; i; j = Math.floor(Math.random() * i), x = data[--i], data[i] = data[j], data[j] = x);
                 items = data;
+                for(var z;z<data.length;z++){
+                    console.log(data[z]);
+                    this.game.load.image(data[z],"res/" + data[z] + ".png");
+                }
             });
         },
         load_item: function(pl, posx, posy, direction){

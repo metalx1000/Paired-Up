@@ -1,9 +1,12 @@
 var preload = function(game){}
 
+
 preload.prototype = {
 	preload: function(){ 
             load_text = this.game.add.text(this.game.world.centerX, this.game.world.centerY + 256, 'Loading', { fill: '#ffffff' });
             load_text.anchor.setTo(.5,.5);
+
+            item_x = 0;
 
             this.game.load.onLoadStart.add(this.loadStart, this);
             this.game.load.onFileComplete.add(this.fileComplete, this);
@@ -34,6 +37,8 @@ preload.prototype = {
                 this.game.load.spritesheet(sprites64[i],"res/sprites/"+sprites64[i]+".png",64,64);
             }
 
+            items=[];
+            this.get_items();
 
 	},
   	create: function(){
@@ -60,6 +65,19 @@ preload.prototype = {
         fileComplete: function(progress, cacheKey, success, totalLoaded, totalFiles) {
             //console.log("File Complete: " + progress + "% - " + totalLoaded + " out of " + totalFiles);
             load_text.setText("File Complete: " + progress + "% - " + totalLoaded + " out of " + totalFiles);
+        },
+        get_items: function(){
+            _this = this;
+            $.getJSON( "data/items.js", function( data ) {
+                //shuffle list
+                item_x = data.length;
+                for(var j, x, i = data.length; i; j = Math.floor(Math.random() * i), x = data[--i], data[i] = data[j], data[j] = x);
+                items = data;
+                for(var z = 0 ;z<data.length;z++){
+                    console.log(data[z]);
+                    _this.game.load.image(data[z],"res/items/" + data[z] + ".png");
+                }
+            });
         },
 
         load_images: function(){
