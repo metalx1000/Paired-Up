@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-# version 1413941848
+# version 1413942107
 ./credit.info
 ./css/basic.css
 ./index.html
@@ -51,7 +51,6 @@ CACHE MANIFEST
 ./js/gametitle.js
 ./js/preload.js
 ./js/boot.js
-./js/.shuffle.js.swp
 ./js/info.js
 ./js/gameover.js
 ./js/shuffle.js
