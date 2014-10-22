@@ -5,6 +5,7 @@ shuffler.prototype = {
                 items=[];
                 this.get_items();
                 delay = 0;
+                var x = 0;
                 this.game.physics.startSystem(Phaser.Physics.ARCADE);
 		var gameTitle = this.game.add.sprite(this.game.world.width * 0.5,this.game.world.height * .1,"game_title");
 		gameTitle.anchor.setTo(0.5,0.5);
@@ -22,6 +23,11 @@ shuffler.prototype = {
         update: function(){
                 //this.game.physics.arcade.collide(players, bricks);
                 delay-=1;
+                if(delay < 0 && this.x > 0){
+                    this.x-=1;
+                    delay = 30;
+                    console.log(items[this.x]);
+                }
 
         },
 	exit: function(){
@@ -35,6 +41,9 @@ shuffler.prototype = {
         get_items: function(){
             _this = this;
             $.getJSON( "data/items.js", function( data ) {
+                //shuffle list
+                _this.x = data.length;
+                for(var j, x, i = data.length; i; j = Math.floor(Math.random() * i), x = data[--i], data[i] = data[j], data[j] = x);
                 items = data;
             });
         },
