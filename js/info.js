@@ -7,7 +7,6 @@ info.prototype = {
 		gameTitle.anchor.setTo(0.5,0.5);
 		var exitButton = this.create_button(this.game.world.width * 0.5,this.game.world.height * .2,"exit","GameTitle");
 
-                this.create_simon();
                 this.get_info();
 
                 //go full screen on click
@@ -15,22 +14,11 @@ info.prototype = {
 	},
         update: function(){
         },
-        simonWeb: function(){
-            window.open("http://multi8it.blogspot.com", "_blank");
-        },
         fullscreen: function(){
             this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
             this.game.scale.startFullScreen();
         },
 
-        create_simon: function(){
-		simon = this.game.add.sprite(this.game.world.width * 0.5,this.game.world.height * .9,"simon");
-                simon.inputEnabled = true;
-                simon.events.onInputDown.add(this.simonWeb,this);
-                simon.anchor.setTo(0.5,0.5);
-                this.game.physics.arcade.enable(simon);
-                simon.body.immovable = true;
-        },
         get_info: function(){
             _this = this;
             $.getJSON( "data/info.json", function( data ) {

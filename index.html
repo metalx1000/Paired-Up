@@ -11,6 +11,7 @@
         <script src="js/boot.js"></script>
         <script src="js/preload.js"></script>
         <script src="js/gametitle.js"></script>
+        <script src="js/shuffle.js"></script>
         <script src="js/info.js"></script> 
 
         <style>
@@ -34,7 +35,7 @@
                 game.state.add("Boot",boot);
                 game.state.add("Preload",preload);
                 game.state.add("GameTitle",gameTitle);
-                //game.state.add("Shuffle",shuffler);
+                game.state.add("Shuffle",shuffler);
                 game.state.add("info",info);
                 game.state.start("Boot")
 

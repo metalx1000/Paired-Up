@@ -1,6 +1,6 @@
-var level1 = function(game){}
+var shuffler = function(game){}
 
-level1.prototype = {
+shuffler.prototype = {
   	create: function(){
                 delay = 0;
                 this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -11,42 +11,26 @@ level1.prototype = {
 
                 bricks = this.game.add.group();
                 bricks.enableBody = true;
-                players = this.game.add.group();
-                players.enableBody = true;
 
                 this.load_ground();
-                this.load_player("player", 0, 0, "right");
 
                 //go full screen on click
                 this.game.input.onDown.add(this.fullscreen, this);
 	},
         update: function(){
-                this.game.physics.arcade.collide(players, bricks);
+                //this.game.physics.arcade.collide(players, bricks);
                 delay-=1;
-                for(var i = 0;i < players.children.length;i++){ 
-                    var player = players.children[i];
-                    var v = Math.floor(Math.random() * 150) + 50
-                    if(player.position.x > this.game.world.width){
-                        this.load_player("player2", this.game.world.width, 0, "left");
-                        player.body.velocity.x = -v;
-                        player.animations.play('left');                    
-                    }else if(player.position.x < 0){
-                        this.load_player("player", 0, 0, "right");
-                        player.animations.play('right');
-                        player.body.velocity.x = v;
-                    }
-                }
         },
 	exit: function(){
                 click.play();
-		this.game.state.start("GameOver");
+		this.game.state.start("GameTitle");
 	},
         fullscreen: function(){
             this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
             this.game.scale.startFullScreen();
         },
 
-        load_player: function(pl, posx, posy, direction){
+        load_item: function(pl, posx, posy, direction){
             if(delay<1){
                 delay = 200;
                 //animations
@@ -69,15 +53,10 @@ level1.prototype = {
             }
         },
 
-        player_jump: function(player){
-            var x = Math.floor(Math.random() * touch.length);
-            touch[x].play();
-            player.body.velocity.y = -500;
-        },
         load_ground: function(){
             for(var x=1;x<3;x++){
                 for(var i=0;i< this.game.world.width;i+=64){
-                    var brick = bricks.create(i, this.game.world.height - 64 * x, 'brick');
+                    var brick = bricks.create(i, this.game.world.height - 32 * x, 'brick');
                     brick.body.immovable = true;                
                 }
             }
