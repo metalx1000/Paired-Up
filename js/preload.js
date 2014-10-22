@@ -21,7 +21,7 @@ preload.prototype = {
             
             //load other preload stuff here
             //sounds
-            var sounds = ["click"];
+            var sounds = ["click","noise"];
             for(var i = 0; i < sounds.length;i++){
                 this.game.load.audio(sounds[i], ['res/sounds/' + sounds[i] + '.mp3','res/sounds/' + sounds[i] + '.ogg']);
             }
@@ -43,10 +43,6 @@ preload.prototype = {
 	},
   	create: function(){
                 click = this.game.add.audio("click");
-                touch=[];
-                for(var i = 1;i <= 3 ;i++){
-                    touch.push(this.game.add.audio("touch"+i));
-                }
                 music = this.game.add.audio("music");
                 music.play('',0,0.3,true);
 	},

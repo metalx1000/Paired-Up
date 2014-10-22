@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-# version 1413982845
+# version 1413983833
 ./credit.info
 ./css/basic.css
 ./index.html
@@ -9,10 +9,12 @@ CACHE MANIFEST
 ./res/sounds/click.mp3
 ./res/sounds/touch2.ogg
 ./res/sounds/touch2.mp3
+./res/sounds/noise.ogg
 ./res/sounds/click.ogg
 ./res/sounds/touch3.ogg
 ./res/sounds/touch3.mp3
 ./res/sounds/touch1.ogg
+./res/sounds/noise.mp3
 ./res/simon.png
 ./res/exit.png
 ./res/music/music.ogg

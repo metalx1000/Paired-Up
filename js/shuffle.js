@@ -31,14 +31,16 @@ shuffler.prototype = {
                 if(delay < 0 && xx > 0){
                     xx-=1;
                     delay = 30;
-                    console.log(items[xx]);
-                    var item = item_group.create(this.game.world.width * 0.5,-64,items[xx]);
+                    //console.log(items[xx]);
+                    var noise = this.game.add.audio("noise");
+                    noise.play();
+                    var item = item_group.create(this.game.world.width * 0.5,64,items[xx]);
                     if(this.lr == 0){
                         this.lr = 1;
                     }else{
                         this.lr = 0;
                     }
-                    item.anchor.setTo(this.lr,this.lr);
+                    item.anchor.setTo(this.lr,.5);
                     item.scale.setTo(1.5,1.5);
                     item.body.gravity.y = 500;
                     item.body.mass = 0;
