@@ -1,0 +1,44 @@
+<!doctype html>
+<html manifest="site.manifest">
+    <head>
+        <link rel="shortcut icon" type="image/png" href="favicon.png" />
+        <meta charset="UTF-8" />
+        <title>Paired Up</title>
+        <script src="scripts/phaser.js"></script>
+        <script src="scripts/jquery.js"></script>
+        <meta name="viewport" content="initial-scale=1 maximum-scale=1 user-scalable=0 minimal-ui" />
+    
+        <script src="js/boot.js"></script>
+        <script src="js/preload.js"></script>
+        <script src="js/gametitle.js"></script>
+        <script src="js/info.js"></script> 
+
+        <style>
+            canvas, html, body { 
+                margin:0; 
+                margin-left: auto; 
+                margin-right: auto; 
+ 
+            } 
+        </style>
+        <!--<link rel="stylesheet" type="text/css" href="css/basic.css"/>-->
+    </head>
+    <body>
+        <script>
+            (function() {
+                //vertical
+                //var height = 1280;var width = 720;
+                //landscape
+                var height = 720;var width = 1280;
+                var game = new Phaser.Game(width, height, Phaser.AUTO, "game");
+                game.state.add("Boot",boot);
+                game.state.add("Preload",preload);
+                game.state.add("GameTitle",gameTitle);
+                //game.state.add("Shuffle",shuffler);
+                game.state.add("info",info);
+                game.state.start("Boot")
+
+            })();  
+        </script>
+    </body>
+</html>
