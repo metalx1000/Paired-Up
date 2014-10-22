@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-# version 1413940135
+# version 1413941256
 ./credit.info
 ./css/basic.css
 ./index.html
@@ -21,6 +21,13 @@ CACHE MANIFEST
 ./res/info.png
 ./res/main_title.png
 ./res/click_me.png
+./res/items/Kristen.png
+./res/items/Liz.png
+./res/items/Morgan.png
+./res/items/Courtney N.png
+./res/items/Jennifer.png
+./res/items/Courtney S.png
+./res/items/Mandy.png
 ./res/sprites/playerf.png
 ./res/sprites/player2.png
 ./res/sprites/playerf2.png
@@ -36,6 +43,8 @@ CACHE MANIFEST
 ./get_template.sh
 ./favicon.png
 ./data/info.json
+./data/items.txt
+./data/items.js
 ./data/images.js
 ./info.json
 ./LICENSE
