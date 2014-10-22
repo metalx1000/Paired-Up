@@ -4,6 +4,8 @@ shuffler.prototype = {
   	create: function(){
                 delay = 0;
                 xx = item_x;
+                for(var j, x, i = items.length; i; j = Math.floor(Math.random() * i), x = items[--i], items[i] = items[j], items[j] = x);
+
                 var lr = 0;
                 this.game.physics.startSystem(Phaser.Physics.ARCADE);
 		var gameTitle = this.game.add.sprite(this.game.world.width * 0.5,this.game.world.height * .1,"game_title");
