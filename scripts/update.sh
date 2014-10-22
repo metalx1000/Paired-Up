@@ -25,6 +25,6 @@ find . -type f -name "*" \
     ! -path "./site.manifest"\
     ! -path "./scripts/*.sh"\
     ! -path "$0" \
-    ! -path "./misc/*" >> site.manifest
+    ! -path "./misc/*"|sed 's/ /%20/g' >> site.manifest
 
 echo "MANIFEST has been updated."

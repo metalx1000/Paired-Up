@@ -20,6 +20,7 @@ shuffler.prototype = {
         update: function(){
                 //this.game.physics.arcade.collide(players, bricks);
                 delay-=1;
+
         },
 	exit: function(){
                 click.play();
@@ -29,7 +30,12 @@ shuffler.prototype = {
             this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
             this.game.scale.startFullScreen();
         },
-
+        get_items: function(){
+            _this = this;
+            $.getJSON( "data/items.js", function( data ) {
+                items = data;
+            });
+        },
         load_item: function(pl, posx, posy, direction){
             if(delay<1){
                 delay = 200;

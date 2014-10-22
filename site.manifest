@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-# version 1413941256
+# version 1413941848
 ./credit.info
 ./css/basic.css
 ./index.html
@@ -24,9 +24,9 @@ CACHE MANIFEST
 ./res/items/Kristen.png
 ./res/items/Liz.png
 ./res/items/Morgan.png
-./res/items/Courtney N.png
+./res/items/Courtney%20N.png
 ./res/items/Jennifer.png
-./res/items/Courtney S.png
+./res/items/Courtney%20S.png
 ./res/items/Mandy.png
 ./res/sprites/playerf.png
 ./res/sprites/player2.png
@@ -51,6 +51,7 @@ CACHE MANIFEST
 ./js/gametitle.js
 ./js/preload.js
 ./js/boot.js
+./js/.shuffle.js.swp
 ./js/info.js
 ./js/gameover.js
 ./js/shuffle.js
