@@ -29,13 +29,11 @@ preload.prototype = {
             this.game.load.audio('music', ['res/music/music.mp3','res/music/music.ogg']);
 
             //load sprites that are 64x64
-            var sprites64 = ["player","player2","mute"];
+            var sprites64 = ["mute"];
             for(var i = 0; i < sprites64.length;i++){
                 this.game.load.spritesheet(sprites64[i],"res/sprites/"+sprites64[i]+".png",64,64);
             }
 
-	    this.game.load.spritesheet("playerf","res/sprites/playerf.png",128,96);
-	    this.game.load.spritesheet("playerf2","res/sprites/playerf2.png",128,96);
 
 	},
   	create: function(){
