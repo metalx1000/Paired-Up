@@ -1,1 +1,1 @@
-["Jennifer","Courtney S","Courtney N","Morgan","Kristen","Mandy","Liz","Randi"]
+["Jennifer","Courtney S","Courtney N","Kristen","Liz","Emma","Jenna","Lindsay","Mary Sue"]
